@@ -38,7 +38,7 @@ const commonHeaders = {
 
 // Fetch all movies
 export const getMovies = (url: string): Promise<GetMovieResponse> =>
-  axios.get(`${url}/movies`).then(yieldData).catch(handleError)
+  axios.get(`${url}/movies`, commonHeaders).then(yieldData).catch(handleError)
 
 // Fetch a single movie by ID
 export const getMovieById = (
@@ -62,7 +62,7 @@ export const getMovieByName = (
 // Create a new movie
 export const addMovie = (
   url: string,
-  data: Partial<Omit<Movie, 'id'>>
+  data: Omit<Movie, 'id'>
 ): Promise<CreateMovieResponse | ConflictMovieResponse> =>
   axios
     .post(`${url}/movies`, data, commonHeaders)
