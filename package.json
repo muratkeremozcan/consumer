@@ -19,7 +19,8 @@
     "can:i:deploy:consumer": ". ./scripts/can-i-deploy-consumer.sh",
     "record:consumer:deployment": ". ./scripts/record-consumer-deployment.sh",
     "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.jest.json",
-    "lint": "eslint --ext=.js,.ts,.tsx --fix"
+    "lint": "eslint --ext=.js,.ts,.tsx --fix",
+    "start": "tsx ./src/events/events-listen.ts"
   },
   "devDependencies": {
     "@bahmutov/cy-api": "2.2.6",
@@ -63,6 +64,8 @@
   "dependencies": {
     "@asteasolutions/zod-to-openapi": "7.2.0",
     "axios": "1.7.7",
-    "zod": "3.23.8"
+    "zod": "3.23.8",
+    "express": "4.21.1",
+    "kafkajs": "2.2.4"
   }
 }
