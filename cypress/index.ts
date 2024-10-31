@@ -59,7 +59,7 @@ declare global {
        */
       updateMovie(
         id: number,
-        body: Partial<Omit<Movie, 'id'>>,
+        body: Partial<Movie>,
         url?: string
       ): Chainable<Response<Movie> & Messages>
 

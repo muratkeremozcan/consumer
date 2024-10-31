@@ -1,8 +1,6 @@
 import type { JsonMap } from '@pact-foundation/pact/src/common/jsonTypes'
 import type { V4ResponseBuilder } from '@pact-foundation/pact/src/v4/http/types'
 
-// Read https://dev.to/muratkeremozcan/-strengthening-pact-contract-testing-with-typescript-and-data-abstraction-16hc
-
 /**
  * Converts an object with arbitrary value types to a `JsonMap` where all values are compatible with Pact's expectations.
  * This is useful for ensuring compatibility with functions that expect all values in the map to be of specific types,

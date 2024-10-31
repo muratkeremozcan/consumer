@@ -9,6 +9,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
+  DATABASE_URL: 'file:./dev.db'
   SERVERPORT: 3001
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   # Enable for for cy cloud
