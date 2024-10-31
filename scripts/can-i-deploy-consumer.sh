@@ -19,7 +19,6 @@ pact-broker can-i-deploy \
     --retry-interval=$RETRY_INTERVAL \
     --verbose
 
-# For Kafka
 # Check if WebConsumer-event-consumer can be deployed
 pact-broker can-i-deploy \
     --pacticipant WebConsumer-event-consumer \
