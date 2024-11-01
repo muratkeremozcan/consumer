@@ -19,11 +19,12 @@ pact-broker can-i-deploy \
     --retry-interval=$RETRY_INTERVAL \
     --verbose
 
+# Have to disable the contract because of the limit of 2 contracts per trial account
 # Check if WebConsumer-event-consumer can be deployed
-pact-broker can-i-deploy \
-    --pacticipant WebConsumer-event-consumer \
-    --version=$GITHUB_SHA \
-    --to-environment dev \
-    --retry-while-unknown=$RETRY_WHILE_UNKNOWN \
-    --retry-interval=$RETRY_INTERVAL \
-    --verbose
+# pact-broker can-i-deploy \
+#     --pacticipant WebConsumer-event-consumer \
+#     --version=$GITHUB_SHA \
+#     --to-environment dev \
+#     --retry-while-unknown=$RETRY_WHILE_UNKNOWN \
+#     --retry-interval=$RETRY_INTERVAL \
+#     --verbose

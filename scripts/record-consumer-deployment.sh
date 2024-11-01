@@ -14,9 +14,10 @@ if [ "$GITHUB_BRANCH" = "main" ]; then
       --version $GITHUB_SHA \
       --environment $npm_config_env
   
+  # Have to disable the contract because of the limit of 2 contracts per trial account
   # Record deployment for WebConsumer-event-consumer
-  pact-broker record-deployment \
-      --pacticipant WebConsumer-event-consumer \
-      --version $GITHUB_SHA \
-      --environment $npm_config_env
+#   pact-broker record-deployment \
+#       --pacticipant WebConsumer-event-consumer \
+#       --version $GITHUB_SHA \
+#       --environment $npm_config_env
 fi
