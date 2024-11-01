@@ -8,7 +8,8 @@ import path from 'node:path'
 
 const { like, eachLike, term } = Matchers
 
-describe('Kafka Movie Event Consumer', () => {
+// Have to disable the contract because of the limit of 2 contracts per trial account
+describe.skip('Kafka Movie Event Consumer', () => {
   const messagePact = new MessageConsumerPact({
     dir: path.resolve(process.cwd(), 'pacts'),
     consumer: 'WebConsumer-event-consumer',
