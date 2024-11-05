@@ -39,25 +39,29 @@ describe('Movies API', () => {
     id: 1,
     name: 'My movie',
     year: 1999,
-    rating: 8.5
+    rating: 8.5,
+    director: 'John Doe'
   }
   const testId = 100
   const movieWithTestId100: Movie = {
     id: testId,
     name: 'My movie',
     year: 1999,
-    rating: 8.5
+    rating: 8.5,
+    director: 'John Doe'
   }
   const movieWithoutId: Omit<Movie, 'id'> = {
     name: 'New movie',
     year: 1999,
-    rating: 8.5
+    rating: 8.5,
+    director: 'John Doe'
   }
 
   const propMatcherNoId = (movieEntity: Movie | Omit<Movie, 'id'>) => ({
     name: string(movieEntity.name),
     year: integer(movieEntity.year),
-    rating: decimal(movieEntity.rating)
+    rating: decimal(movieEntity.rating),
+    director: string(movieEntity.director)
   })
 
   describe('When a GET request is made to /movies', () => {
@@ -209,7 +213,8 @@ describe('Movies API', () => {
               id: expect.any(Number),
               name: movieWithoutId.name,
               year: movieWithoutId.year,
-              rating: movieWithoutId.rating
+              rating: movieWithoutId.rating,
+              director: movieWithoutId.director
             }
           })
         })
@@ -244,7 +249,8 @@ describe('Movies API', () => {
       const updatedMovieData = {
         name: 'Updated movie',
         year: 2000,
-        rating: 8.5
+        rating: 8.5,
+        director: 'Steven Spielberg'
       }
 
       const [stateName, stateParams] = createProviderState({
@@ -280,7 +286,8 @@ describe('Movies API', () => {
               id: testId,
               name: updatedMovieData.name,
               year: updatedMovieData.year,
-              rating: updatedMovieData.rating
+              rating: updatedMovieData.rating,
+              director: updatedMovieData.director
             }
           })
         })

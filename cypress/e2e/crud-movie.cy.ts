@@ -9,7 +9,8 @@ describe('CRUD movie', () => {
   const movieProps: Omit<Movie, 'id'> = {
     name: spok.string,
     year: spok.number,
-    rating: spok.number
+    rating: spok.number,
+    director: spok.string
   }
 
   retryableBefore(() => {
@@ -33,17 +34,31 @@ describe('CRUD movie', () => {
 
         cy.getMovieById(id)
           .its('data')
-          .should(spok({ ...movieProps, id }))
+          .should(
+            spok({
+              ...movieProps,
+              id
+            })
+          )
           .its('name')
           .then((name) => {
             cy.getMovieByName(name)
               .its('data')
-              .should(spok({ ...movieProps, id }))
+              .should(
+                spok({
+                  ...movieProps,
+                  id
+                })
+              )
           })
 
         cy.updateMovie(id, updatedMovie).should(
           spok({
-            data: { id, name: updatedMovie.name, year: updatedMovie.year },
+            data: {
+              id,
+              name: updatedMovie.name,
+              year: updatedMovie.year
+            },
             status: 200
           })
         )
