@@ -12,8 +12,6 @@ import { extendZodWithOpenApi } from '@asteasolutions/zod-to-openapi'
 // extends Zod with OpenAPI support
 extendZodWithOpenApi(z)
 
-extendZodWithOpenApi(z)
-
 export const CreateMovieSchema = z
   .object({
     id: z
